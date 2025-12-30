@@ -4,21 +4,10 @@
   "builds": [
     {
       "src": "dist/index.cjs",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "dist/index.cjs"
-    },
-    {
-      "src": "/(.*\\.[a-z0-9]+)$",
-      "dest": "dist/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.cjs"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/public/**"]
+      }
     }
   ]
 }
