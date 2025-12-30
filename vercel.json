@@ -2,20 +2,26 @@
   "version": 2,
   "builds": [
     {
-      "src": "server/index.ts",
+      "src": "dist/index.cjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "dist/index.cjs"
+    },
+    {
+      "src": "/(.*\\.[a-zA-Z0-9]+)$",
+      "dest": "dist/public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/$1",
-      "check": true,
-      "status": 200
+      "dest": "dist/index.cjs"
     }
   ]
 }
