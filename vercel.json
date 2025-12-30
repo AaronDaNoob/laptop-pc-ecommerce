@@ -17,10 +17,5 @@
       "check": true,
       "status": 200
     }
-  ],
-  "functions": {
-    "server/index.ts": {
-      "maxDuration": 60
-    }
-  }
+  ]
 }
